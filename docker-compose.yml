@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  localstack:
+    image: localstack/localstack
+    container_name: localstack_tf
+    ports:
+      - "4566:4566"
+      - "4571:4571"
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      # - LOCALSTACK_API_KEY=your_api_key # Opcional, para funcionalidades avanzadas
+    volumes:
+      - "./localstack:/var/lib/localstack"
